@@ -24,10 +24,9 @@
       font-size: 9vw;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      animation: glitch 1s infinite;
     }
 
-    p {
+    .subtitle {
       font-size: 4vw;
       margin-top: 1rem;
       opacity: 0.85;
@@ -38,18 +37,20 @@
       top: 1rem;
       left: 1rem;
       font-size: 4vw;
-      opacity: 0.85;
+      opacity: 0.8;
       z-index: 100;
       pointer-events: none;
     }
 
-    @keyframes glitch {
-      0% { transform: translate(0); }
-      20% { transform: translate(-2px, 1px); }
-      40% { transform: translate(2px, -1px); }
-      60% { transform: translate(-1px, 2px); }
-      80% { transform: translate(1px, -2px); }
-      100% { transform: translate(0); }
+    .glitch-c {
+      display: inline-block;
+      filter: url(#glitchFilter);
+    }
+
+    audio {
+      margin-top: 2rem;
+      width: 80%;
+      max-width: 500px;
     }
 
     @keyframes bgShift {
@@ -60,14 +61,20 @@
   </style>
 </head>
 <body>
-  <div class="corner-label">elektroschaden</div>
-  <h1>MUSIC</h1>
-  <p>grain – glitch – struktur</p>
+  <svg width="0" height="0">
+    <filter id="glitchFilter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="3" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" />
+    </filter>
+  </svg>
 
-  <!-- Unsichtbarer Audio-Loop -->
-  <audio autoplay loop playsinline>
+  <div class="corner-label">elektroschaden</div>
+  <h1>M U S I <span class="glitch-c">C</span></h1>
+  <p class="subtitle">grain – glitch – struktur</p>
+
+  <audio controls>
     <source src="sacrefract-teaser.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
+    Dein Browser unterstützt kein Audio.
   </audio>
 </body>
 </html>
