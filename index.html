@@ -36,17 +36,10 @@
       text-align: center;
     }
 
-    h1 {
-      font-size: 9vw;
-      letter-spacing: 0.05em;
-      margin: 0;
-      z-index: 1;
-      white-space: nowrap;
-      width: 50vw;
-    }
-
-    .glitch-c {
-      display: inline-block;
+    svg.music-word {
+      width: 60vw;
+      max-width: 700px;
+      fill: white;
     }
 
     svg.signature {
@@ -87,7 +80,13 @@
 </head>
 <body>
   <div class="center-content">
-    <h1>M U S I <span class="glitch-c">C</span></h1>
+    <!-- SVG MUSIC mit separatem C für spätere Animation -->
+    <svg class="music-word" viewBox="0 0 1000 100" preserveAspectRatio="xMidYMid meet">
+      <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
+            font-family="monospace" font-size="96" letter-spacing="15">
+        MUSI<tspan id="exploding-c">C</tspan>
+      </text>
+    </svg>
 
     <!-- SVG Schriftzug "elektroschaden" -->
     <svg class="signature" viewBox="0 0 1000 100" preserveAspectRatio="xMidYMid meet">
