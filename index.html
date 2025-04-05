@@ -9,33 +9,25 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      background: black;
-      overflow: hidden;
+      background: #000;
       font-family: monospace;
       color: white;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
     }
 
-    body::before {
-      content: "";
+    canvas#noise {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('https://grainy-gradients.vercel.app/noise.svg');
-      background-size: cover;
-      opacity: 0.06;
       z-index: 0;
-      animation: moveNoise 20s infinite linear;
-    }
-
-    @keyframes moveNoise {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(-10px, -10px); }
+      pointer-events: none;
+      opacity: 0.06;
     }
 
     h1 {
@@ -46,7 +38,7 @@
 
     .glitch-c {
       display: inline-block;
-      /* vorbereitet für spätere Partikelanimation */
+      /* später animierbar */
     }
 
     .subtitle {
@@ -62,7 +54,7 @@
       left: 1rem;
       font-size: 4vw;
       opacity: 0.8;
-      z-index: 10;
+      z-index: 2;
       pointer-events: none;
     }
 
@@ -71,15 +63,15 @@
       width: 80%;
       max-width: 500px;
       z-index: 1;
-      filter: grayscale(1) brightness(1.2);
     }
 
-    audio::-webkit-media-controls-panel {
-      background-color: transparent;
+    audio::-internal-media-controls-download-button {
+      display: none;
     }
 
-    audio::-webkit-media-controls-play-button {
-      filter: invert(1);
+    audio::-webkit-media-controls-enclosure {
+      background-color: #000;
+      color: white;
     }
 
     @media (max-width: 600px) {
@@ -90,8 +82,9 @@
   </style>
 </head>
 <body>
-  <div class="corner-label">elektroschaden</div>
+  <canvas id="noise"></canvas>
 
+  <div class="corner-label">elektroschaden</div>
   <h1>M U S I <span class="glitch-c">C</span></h1>
   <p class="subtitle">grain – glitch – struktur</p>
 
@@ -99,5 +92,33 @@
     <source src="sacrefract-teaser.mp3" type="audio/mpeg">
     Dein Browser unterstützt kein Audio.
   </audio>
+
+  <script>
+    // Noise Canvas
+    const canvas = document.getElementById('noise');
+    const ctx = canvas.getContext('2d');
+    let w, h;
+
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+
+    function drawNoise() {
+      const imageData = ctx.createImageData(w, h);
+      for (let i = 0; i < imageData.data.length; i += 4) {
+        const shade = Math.floor(Math.random() * 255);
+        imageData.data[i] = shade;
+        imageData.data[i + 1] = shade;
+        imageData.data[i + 2] = shade;
+        imageData.data[i + 3] = 10; // Transparenz
+      }
+      ctx.putImageData(imageData, 0, 0);
+    }
+
+    resize();
+    window.addEventListener('resize', resize);
+    setInterval(drawNoise, 100);
+  </script>
 </body>
 </html>
