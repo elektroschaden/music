@@ -57,12 +57,12 @@
     }
 
     #highlight-u {
-      animation: highlightRed 10s ease-in-out 2s forwards;
+      animation: flashRed 6s ease-in-out 2s forwards;
     }
 
-    @keyframes highlightRed {
+    @keyframes flashRed {
       0%   { fill: white; }
-      100% { fill: #661111; }
+      100% { fill: #aa1111; }
     }
 
     @keyframes degrade {
@@ -117,8 +117,8 @@
     <svg class="music-word" viewBox="0 0 1000 200" preserveAspectRatio="xMidYMid meet">
       <defs>
         <filter id="glitchmask">
-          <feTurbulence type="turbulence" baseFrequency="0.8" numOctaves="3" result="noise" />
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" xChannelSelector="R" yChannelSelector="G" />
+          <feTurbulence type="turbulence" baseFrequency="1.6" numOctaves="5" result="noise" />
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="14" xChannelSelector="R" yChannelSelector="G" />
         </filter>
       </defs>
       <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
