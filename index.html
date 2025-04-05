@@ -10,10 +10,12 @@
       padding: 0;
       height: 100%;
       background-color: black;
-      font-family: monospace;
+      font-family: 'Courier Prime', monospace;
       color: white;
       overflow: hidden;
     }
+
+    @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
 
     body {
       animation: bgShift 8s infinite alternate;
@@ -42,6 +44,12 @@
       fill: white;
     }
 
+    svg.music-word text {
+      font-size: 200px;
+      letter-spacing: 25px;
+      font-family: 'Courier Prime', monospace;
+    }
+
     svg.signature {
       width: 60vw;
       max-width: 700px;
@@ -52,6 +60,7 @@
     svg.signature text {
       font-size: 64px;
       letter-spacing: 10px;
+      font-family: 'Courier Prime', monospace;
     }
 
     audio {
@@ -82,16 +91,14 @@
   <div class="center-content">
     <!-- SVG MUSIC mit separatem C für spätere Animation -->
     <svg class="music-word" viewBox="0 0 1000 200" preserveAspectRatio="xMidYMid meet">
-      <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
-            font-family="monospace" font-size="200" letter-spacing="15">
+      <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
         MUSI<tspan id="exploding-c">C</tspan>
       </text>
     </svg>
 
     <!-- SVG Schriftzug "elektroschaden" -->
     <svg class="signature" viewBox="0 0 1000 100" preserveAspectRatio="xMidYMid meet">
-      <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
-            font-family="monospace">
+      <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
         elektroschaden
       </text>
     </svg>
