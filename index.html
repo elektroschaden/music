@@ -8,24 +8,23 @@
     html, body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #000 0%, #111 100%);
+      height: 100%;
       overflow: hidden;
+      background: black;
       font-family: monospace;
-      height: 100vh;
       color: white;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      animation: bgShift 8s infinite alternate;
+      animation: bgShift 4s infinite;
     }
 
     h1 {
       font-size: 9vw;
-      position: relative;
-      animation: glitch 1s infinite;
       text-transform: uppercase;
       letter-spacing: 0.05em;
+      animation: glitch 1s infinite;
     }
 
     p {
@@ -44,8 +43,11 @@
     }
 
     @keyframes bgShift {
-      0% { background: linear-gradient(135deg, #000, #111); }
-      100% { background: linear-gradient(135deg, #111, #000); }
+      0%   { background: linear-gradient(90deg, #000, #111); }
+      25%  { background: linear-gradient(90deg, #220022, #000022); }
+      50%  { background: linear-gradient(90deg, #001122, #220000); }
+      75%  { background: linear-gradient(90deg, #000000, #111111); }
+      100% { background: linear-gradient(90deg, #110011, #000); }
     }
   </style>
 </head>
