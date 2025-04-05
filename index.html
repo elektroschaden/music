@@ -56,6 +56,15 @@
       transform-origin: center;
     }
 
+    #highlight-u {
+      animation: highlightRed 10s ease-in-out 2s forwards;
+    }
+
+    @keyframes highlightRed {
+      0%   { fill: white; }
+      100% { fill: #661111; }
+    }
+
     @keyframes degrade {
       0%   { opacity: 1; }
       20%  { opacity: 0.9; }
@@ -113,7 +122,7 @@
         </filter>
       </defs>
       <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
-        MUSI<tspan id="exploding-c">C</tspan>
+        M<tspan id="highlight-u">U</tspan>SI<tspan id="exploding-c">C</tspan>
       </text>
     </svg>
 
