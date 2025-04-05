@@ -49,14 +49,11 @@
       display: inline-block;
     }
 
-    .signature {
-      font-size: 3.5vw;
+    svg.signature {
+      width: 50vw;
+      max-width: 600px;
       margin-top: 1.5rem;
-      color: #d0d0d0;
-      z-index: 1;
-      width: 54vw;
-      text-align: center;
-      letter-spacing: 0.24vw;
+      fill: #d0d0d0;
     }
 
     audio {
@@ -86,7 +83,14 @@
 <body>
   <div class="center-content">
     <h1>M U S I <span class="glitch-c">C</span></h1>
-    <p class="signature">elektroschaden</p>
+
+    <!-- SVG Schriftzug "elektroschaden" -->
+    <svg class="signature" viewBox="0 0 1000 100" preserveAspectRatio="xMidYMid meet">
+      <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
+            font-size="48" font-family="monospace" letter-spacing="6">
+        elektroschaden
+      </text>
+    </svg>
 
     <audio controls>
       <source src="sacrefract-teaser.mp3" type="audio/mpeg">
