@@ -9,14 +9,13 @@
       margin: 0;
       padding: 0;
       height: 100%;
+      background-color: black;
       font-family: monospace;
       color: white;
-      background-color: black;
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 15vh;
+    }
+
+    body {
       animation: bgShift 8s infinite alternate;
     }
 
@@ -26,9 +25,21 @@
       100% { background-color: #000; }
     }
 
+    .center-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -55%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
     h1 {
       font-size: 9vw;
       letter-spacing: 0.05em;
+      margin: 0;
       z-index: 1;
     }
 
@@ -45,7 +56,7 @@
 
     audio {
       margin-top: 2.5rem;
-      width: 80%;
+      width: 80vw;
       max-width: 500px;
       z-index: 1;
       filter: brightness(1.2) contrast(1.1);
@@ -66,13 +77,14 @@
   </style>
 </head>
 <body>
+  <div class="center-content">
+    <h1>M U S I <span class="glitch-c">C</span></h1>
+    <p class="signature">elektroschaden</p>
 
-  <h1>M U S I <span class="glitch-c">C</span></h1>
-  <p class="signature">elektroschaden</p>
-
-  <audio controls>
-    <source src="sacrefract-teaser.mp3" type="audio/mpeg">
-    Dein Browser unterstützt kein Audio.
-  </audio>
+    <audio controls>
+      <source src="sacrefract-teaser.mp3" type="audio/mpeg">
+      Dein Browser unterstützt kein Audio.
+    </audio>
+  </div>
 </body>
 </html>
