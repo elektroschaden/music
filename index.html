@@ -16,7 +16,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      padding-top: 12vh;
       animation: bgShift 8s infinite alternate;
     }
 
@@ -43,19 +43,12 @@
       z-index: 1;
     }
 
-   .corner-label {
-  position: fixed;
-  top: 1rem;
-  left: 1rem;
-  font-size: 3.5vw;
-  opacity: 0.9;
-  z-index: 2;
-  pointer-events: none;
-  font-family: system-ui, monospace;
-  color: #e6e6e6;
-  font-weight: 500;
-  text-shadow: 0 0 1px rgba(255,255,255,0.2);
-}
+    .signature {
+      font-size: 3.5vw;
+      margin-top: 0.5rem;
+      opacity: 0.4;
+      z-index: 1;
+    }
 
     audio {
       margin-top: 2rem;
@@ -77,19 +70,13 @@
     audio::-webkit-media-controls-play-button {
       filter: invert(1) brightness(2);
     }
-
-    @media (max-width: 600px) {
-      .corner-label {
-        font-size: 6vw;
-      }
-    }
   </style>
 </head>
 <body>
-  <div class="corner-label">elektroschaden</div>
 
   <h1>M U S I <span class="glitch-c">C</span></h1>
   <p class="subtitle">grain – spectral – glitch</p>
+  <p class="signature">elektroschaden</p>
 
   <audio controls>
     <source src="sacrefract-teaser.mp3" type="audio/mpeg">
