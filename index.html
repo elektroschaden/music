@@ -9,15 +9,15 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      overflow: hidden;
-      background: black;
-      font-family: monospace;
+      background: #000;
       color: white;
+      font-family: monospace;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      animation: bgShift 4s infinite;
+      animation: bgShift 8s infinite alternate;
     }
 
     h1 {
@@ -27,11 +27,20 @@
       animation: glitch 1s infinite;
     }
 
-    .subtitle {
+    p {
       font-size: 4vw;
       margin-top: 1rem;
-      opacity: 0.9;
-      letter-spacing: 0.02em;
+      opacity: 0.85;
+    }
+
+    .corner-label {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      font-size: 3.5vw;
+      opacity: 0.8;
+      z-index: 100;
+      pointer-events: none;
     }
 
     @keyframes glitch {
@@ -44,16 +53,15 @@
     }
 
     @keyframes bgShift {
-      0%   { background: linear-gradient(90deg, #000, #111); }
-      25%  { background: linear-gradient(90deg, #220022, #000022); }
-      50%  { background: linear-gradient(90deg, #001122, #220000); }
-      75%  { background: linear-gradient(90deg, #000000, #111111); }
-      100% { background: linear-gradient(90deg, #110011, #000); }
+      0%   { background-color: #000; }
+      50%  { background-color: #111; }
+      100% { background-color: #000; }
     }
   </style>
 </head>
 <body>
+  <div class="corner-label">elektroschaden</div>
   <h1>MUSIC</h1>
-  <p class="subtitle">elektroschaden</p>
+  <p>grain – glitch – struktur</p>
 </body>
 </html>
