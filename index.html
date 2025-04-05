@@ -50,6 +50,21 @@
       font-family: 'Courier Prime', monospace;
     }
 
+    #exploding-c {
+      filter: url(#glitchmask);
+      animation: degrade 12s ease-out 2s forwards;
+      transform-origin: center;
+    }
+
+    @keyframes degrade {
+      0%   { opacity: 1; }
+      20%  { opacity: 0.9; }
+      40%  { opacity: 0.6; }
+      60%  { opacity: 0.4; }
+      80%  { opacity: 0.2; }
+      100% { opacity: 0.15; }
+    }
+
     svg.signature {
       width: 60vw;
       max-width: 700px;
@@ -91,6 +106,12 @@
   <div class="center-content">
     <!-- SVG MUSIC mit separatem C für spätere Animation -->
     <svg class="music-word" viewBox="0 0 1000 200" preserveAspectRatio="xMidYMid meet">
+      <defs>
+        <filter id="glitchmask">
+          <feTurbulence type="turbulence" baseFrequency="0.8" numOctaves="3" result="noise" />
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+      </defs>
       <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
         MUSI<tspan id="exploding-c">C</tspan>
       </text>
